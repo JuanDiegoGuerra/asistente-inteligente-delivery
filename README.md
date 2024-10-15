@@ -4,10 +4,10 @@
   <h2><b>Asistente IA 🤖 de tareas administrativas para app de delivery 🍔🍟☕</b></h2>
 </div>
 
-# 📗 Table of Contents
+# 📗 Tabla de Contenido
 
-- [📖 About the Project](#about-project)
-  - [🛠 Built With](#built-with)
+- [📖 Acerca del Proyecto](#acerca-proyecto)
+  - [🛠 Construido Con](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features ](#key-features-)
 - [💻 Getting Started](#getting-started)
@@ -24,7 +24,7 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-# Asistente IA 🤖 para app delivery 🍔<a name="about-project"></a>
+# Asistente IA 🤖 para app delivery 🍔<a name="acerca-proyecto"></a>
 
 Aplicación web para la automatización de tareas administrativas en una empresa de delivery de comida, utilizando la API de OpenAI.
 
@@ -74,11 +74,13 @@ NOTE: If you are running on Windows, you need to initialize npm to create packag
 In order to run this project you need to run the following commands:
 
 ```sh
- TBD
+ python -m venv env
+ pip install -r requirements.txt
 ```
 
 ```sh
- TBD
+ cd frontend
+ npm install
 ```
 
 ### Setup
