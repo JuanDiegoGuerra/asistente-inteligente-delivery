@@ -1,8 +1,11 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
+import os
+from dotenv import load_dotenv
 import openai
 
 router = APIRouter()
+load_dotenv()  # Carga las variables de entorno desde el archivo .env
 
 # Modelo de datos para la petición
 class PromocionRequest(BaseModel):
@@ -10,7 +13,7 @@ class PromocionRequest(BaseModel):
     horario: str  # Puede ser: "mañana", "tarde", "noche"
 
 # API key de OpenAI
-openai.api_key = "TU_API_KEY"
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 @router.post("/generar-promocion")
 async def generar_promocion(promocion: PromocionRequest):
