@@ -1,5 +1,18 @@
+import os
+import openai
+from dotenv import load_dotenv
 from fastapi import FastAPI
 from backend.api import recordatorios, promociones
+
+# Cargar las variables de entorno
+load_dotenv()
+
+# Obtener la API Key
+api_key = os.getenv("OPENAI_API_KEY")
+print(f"API Key: {api_key}")  # Imprime la API Key para verificar
+
+# Configurar OpenAI
+openai.api_key = api_key
 
 # Inicialización de la aplicación
 app = FastAPI()
