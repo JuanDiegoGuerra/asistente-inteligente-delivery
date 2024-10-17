@@ -1,11 +1,12 @@
 from fastapi import FastAPI
-from backend.api import recordatorios
+from backend.api import recordatorios, promociones
 
 # Inicialización de la aplicación
 app = FastAPI()
 
 # Incluir los routers
 app.include_router(recordatorios.router, prefix="/api")
+app.include_router(promociones.router, prefix="/api")
 
 # Endpoints simples
 @app.get("/")
