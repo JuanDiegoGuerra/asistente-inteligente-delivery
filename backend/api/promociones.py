@@ -1,23 +1,28 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from transformers import pipeline
+import os
+from dotenv import load_dotenv
+
+# Cargar las variables de entorno
+load_dotenv()
 
 router = APIRouter()
 
-# Cargar modelo preentrenado de Hugging Face
+# Inicializa el pipeline de generación de texto con GPT-2
 generator = pipeline('text-generation', model='gpt2')
 
 # Modelo de datos para la petición
 class PromocionRequest(BaseModel):
     tipo_comida: str
-    horario: str  # Puede ser: "mañana", "tarde", "noche"
+    horario: str  # Puede ser: "desayuno", "almuerzo", "cena"
 
 @router.post("/generar-promocion")
 async def generar_promocion(promocion: PromocionRequest):
-    prompt = f"Genera un mensaje promocional para {promocion.tipo_comida} en el horario de {promocion.horario}."
+    prompt = f"Write a message that says you want a {promocion.tipo_comida} for {promocion.horario}."
 
     try:
-        # Generar texto usando Hugging Face GPT-2
+        # Generación de texto con el modelo GPT-2
         response = generator(prompt, max_length=60, num_return_sequences=1)
         mensaje_generado = response[0]['generated_text'].strip()
         return {"mensaje_promocional": mensaje_generado}
