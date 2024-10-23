@@ -25,7 +25,11 @@ async def obtener_recordatorios():
 # Ruta para crear un nuevo recordatorio
 @router.post("/recordatorios", response_model=Recordatorio)
 async def crear_recordatorio(recordatorio: Recordatorio):
-    global id_counter
+# Validar que el ID no sea parte de la solicitud entrante
+    if recordatorio.id is not None:
+        raise HTTPException(status_code=400, detail="ID should not be provided")
+    
+    # Crear el nuevo recordatorio con el ID generado automáticamente
     nuevo_recordatorio = recordatorio.model_copy(update={"id": id_counter})
     recordatorios_db.append(nuevo_recordatorio)
     id_counter += 1
