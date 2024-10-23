@@ -40,6 +40,8 @@ const Recordatorios = () => {
       fecha_vencimiento: new Date(fecha).toISOString(),
       completado 
     };
+
+    console.log("Datos a enviar:", nuevoRecordatorio);
   
     try {
       const response = await fetch('http://127.0.0.1:8000/api/recordatorios', {
