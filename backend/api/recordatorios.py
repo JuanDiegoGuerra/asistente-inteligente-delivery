@@ -26,7 +26,7 @@ async def obtener_recordatorios():
 @router.post("/recordatorios", response_model=Recordatorio)
 async def crear_recordatorio(recordatorio: Recordatorio):
     global id_counter
-    nuevo_recordatorio = recordatorio.copy(update={"id": id_counter})
+    nuevo_recordatorio = recordatorio.model_copy(update={"id": id_counter})
     recordatorios_db.append(nuevo_recordatorio)
     id_counter += 1
     return nuevo_recordatorio
