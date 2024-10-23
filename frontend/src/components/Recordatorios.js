@@ -28,13 +28,13 @@ const Recordatorios = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Convierte la fecha en un formato compatible con FastAPI (ISO 8601)
-    const fechaFormateada = new Date(fecha).toISOString();
-    
+    // Asegúrate de que la fecha se convierte a formato ISO 8601
+    const fechaVencimientoFormateada = new Date(fecha).toISOString();
+
     const nuevoRecordatorio = { 
         titulo, 
         descripcion, 
-        fecha: fechaFormateada, // Usamos la fecha formateada
+        fecha_vencimiento: fechaVencimientoFormateada,
         completado 
     };
     
@@ -99,8 +99,7 @@ const Recordatorios = () => {
       <ul>
         {recordatorios.map((recordatorio) => (
           <li key={recordatorio.id}>
-            {recordatorio.titulo} - {new Date(recordatorio.fecha).toLocaleString()} 
-            - {recordatorio.completado ? 'Completado' : 'Pendiente'}
+            {recordatorio.titulo} - {new Date(recordatorio.fecha_vencimiento).toLocaleString()} - {recordatorio.completado ? 'Completado' : 'Pendiente'}
           </li>
         ))}
       </ul>
