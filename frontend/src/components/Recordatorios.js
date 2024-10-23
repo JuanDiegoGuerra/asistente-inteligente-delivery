@@ -1,38 +1,59 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
-const Recordatorios = () => {
-  const [recordatorios, setRecordatorios] = useState([]);
+const RecordatorioForm = () => {
+  const [titulo, setTitulo] = useState('');
+  const [descripcion, setDescripcion] = useState('');
+  const [fecha, setFecha] = useState('');
+  const [completado, setCompletado] = useState(false);
 
-  // Llamada a la API para obtener los recordatorios
-  useEffect(() => {
-    const fetchRecordatorios = async () => {
-      try {
-        const response = await fetch('http://127.0.0.1:8000/api/recordatorios');
-        const data = await response.json();
-        setRecordatorios(data);
-      } catch (error) {
-        console.error('Error al obtener los recordatorios:', error);
-      }
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const nuevoRecordatorio = { titulo, descripcion, fecha, completado };
+    
+    const response = await fetch('http://127.0.0.1:8000/api/recordatorios', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(nuevoRecordatorio),
+    });
 
-    fetchRecordatorios();
-  }, []); // El array vacío [] significa que solo se ejecuta al montar el componente
+    const data = await response.json();
+    console.log('Recordatorio creado:', data);
+  };
 
   return (
-    <div>
-      <h1>Lista de Recordatorios</h1>
-      <ul>
-        {recordatorios.map((recordatorio) => (
-          <li key={recordatorio.id}>
-            <h3>{recordatorio.titulo}</h3>
-            <p>{recordatorio.descripcion}</p>
-            <p>Fecha: {recordatorio.fecha}</p>
-            <p>{recordatorio.completado ? 'Completado' : 'Pendiente'}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <input 
+        type="text" 
+        placeholder="Título" 
+        value={titulo} 
+        onChange={(e) => setTitulo(e.target.value)} 
+        required 
+      />
+      <textarea 
+        placeholder="Descripción" 
+        value={descripcion} 
+        onChange={(e) => setDescripcion(e.target.value)} 
+        required 
+      />
+      <input 
+        type="datetime-local" 
+        value={fecha} 
+        onChange={(e) => setFecha(e.target.value)} 
+        required 
+      />
+      <label>
+        Completado:
+        <input 
+          type="checkbox" 
+          checked={completado} 
+          onChange={() => setCompletado(!completado)} 
+        />
+      </label>
+      <button type="submit">Crear Recordatorio</button>
+    </form>
   );
 };
 
-export default Recordatorios;
+export default RecordatorioForm;
