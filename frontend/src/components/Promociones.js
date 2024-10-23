@@ -23,7 +23,9 @@ const Promociones = () => {
       <h1>Promociones</h1>
       <ul>
         {promociones.map((promocion) => (
-          <li key={promocion.id}>{promocion.tipo_comida} - {promocion.horario}</li>
+          <li key={promocion.id}>
+            <strong>{promocion.titulo}</strong>: {promocion.descripcion}
+          </li>
         ))}
       </ul>
     </div>
