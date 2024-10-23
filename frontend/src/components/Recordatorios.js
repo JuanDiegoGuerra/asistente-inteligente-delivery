@@ -28,35 +28,38 @@ const Recordatorios = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Asegúrate de que la fecha se convierte a formato ISO 8601
-    const fechaVencimientoFormateada = new Date(fecha).toISOString();
-
-    const nuevoRecordatorio = { 
-        titulo, 
-        descripcion, 
-        fecha_vencimiento: fechaVencimientoFormateada,
-        completado 
-    };
-    
-    try {
-        const response = await fetch('http://127.0.0.1:8000/api/recordatorios', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(nuevoRecordatorio),
-        });
-
-        if (response.ok) {
-            const data = await response.json();
-            console.log('Recordatorio creado:', data);
-        } else {
-            console.error('Error al crear el recordatorio:', response.status);
-        }
-    } catch (error) {
-        console.error('Error en la solicitud:', error);
+    // Verificar que la fecha no sea inválida
+    if (!fecha || isNaN(new Date(fecha).getTime())) {
+      alert("Por favor ingresa una fecha válida.");
+      return;
     }
-};
+  
+    const nuevoRecordatorio = { 
+      titulo, 
+      descripcion, 
+      fecha_vencimiento: new Date(fecha).toISOString(),
+      completado 
+    };
+  
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/recordatorios', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(nuevoRecordatorio),
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Recordatorio creado:', data);
+      } else {
+        console.error('Error al crear el recordatorio:', response.status);
+      }
+    } catch (error) {
+      console.error('Error en la conexión con el servidor:', error);
+    }
+  };  
 
   return (
     <div>
@@ -97,12 +100,15 @@ const Recordatorios = () => {
       {/* Lista de recordatorios existentes */}
       <h2>Lista de Recordatorios</h2>
       <ul>
-        {recordatorios.map((recordatorio) => (
-          <li key={recordatorio.id}>
-            {recordatorio.titulo} - {new Date(recordatorio.fecha_vencimiento).toLocaleString()} - {recordatorio.completado ? 'Completado' : 'Pendiente'}
-          </li>
-        ))}
-      </ul>
+      {recordatorios.map((recordatorio) => (
+        <li key={recordatorio.id}>
+          <h4>{recordatorio.titulo}</h4>
+          <p>{new Date(recordatorio.fecha_vencimiento).toLocaleString()}</p>
+          <p>{recordatorio.completado ? "Completado" : "Pendiente"}</p>
+          <p>{recordatorio.descripcion}</p>  {/* Descripción agregada */}
+        </li>
+      ))}
+    </ul>
     </div>
   );
 };
