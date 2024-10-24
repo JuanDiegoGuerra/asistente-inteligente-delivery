@@ -7,7 +7,7 @@ router = APIRouter()
 
 # Modelo de datos para los recordatorios
 class Recordatorio(BaseModel):
-    id: Optional[int]  # Asignado por el sistema
+    id: Optional[int] = None  # Asignado por el sistema, inicializado en None
     titulo: str
     descripcion: str
     fecha_vencimiento: datetime
@@ -25,12 +25,13 @@ async def obtener_recordatorios():
 # Ruta para crear un nuevo recordatorio
 @router.post("/recordatorios", response_model=Recordatorio)
 async def crear_recordatorio(recordatorio: Recordatorio):
-# Validar que el ID no sea parte de la solicitud entrante
+    global id_counter
+    # Validar que el ID no sea parte de la solicitud entrante
     if recordatorio.id is not None:
         raise HTTPException(status_code=400, detail="ID should not be provided")
     
-    # Crear el nuevo recordatorio con el ID generado automáticamente
-    nuevo_recordatorio = recordatorio.model_copy(update={"id": id_counter})
+    # Asignar un nuevo ID y agregar el recordatorio a la base de datos
+    nuevo_recordatorio = recordatorio.copy(update={"id": id_counter})
     recordatorios_db.append(nuevo_recordatorio)
     id_counter += 1
     return nuevo_recordatorio
