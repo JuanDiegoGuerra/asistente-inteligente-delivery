@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../styles/styles.css';
 
 // Componente principal que maneja el formulario y la visualización de recordatorios
 const Recordatorios = () => {
@@ -23,6 +24,20 @@ const Recordatorios = () => {
   useEffect(() => {
     obtenerRecordatorios();
   }, []);
+
+  useEffect(() => {
+    const verificarRecordatoriosProximos = async () => {
+        const response = await fetch('http://127.0.0.1:8000/api/recordatorios/proximos');
+        const data = await response.json();
+        if (data.length > 0) {
+            alert('Tienes recordatorios próximos a vencer');
+        }
+    };
+
+    const interval = setInterval(verificarRecordatoriosProximos, 60000); // 60,000 ms = 1 minuto
+
+    return () => clearInterval(interval); // Limpia el intervalo cuando el componente se desmonta
+}, []);
 
   // Función para manejar la creación de nuevos recordatorios
   const handleSubmit = async (e) => {
@@ -55,13 +70,19 @@ const Recordatorios = () => {
       if (response.ok) {
         const data = await response.json();
         console.log('Recordatorio creado:', data);
+        setRecordatorios(prevRecordatorios => [...prevRecordatorios, data]); // Actualizar la lista
+        // Limpia el formulario después de agregar el recordatorio
+        setTitulo('');
+        setDescripcion('');
+        setFecha('');
+        setCompletado(false);
       } else {
         console.error('Error al crear el recordatorio:', response.status);
       }
-    } catch (error) {
-      console.error('Error en la conexión con el servidor:', error);
+      } catch (error) {
+    console.error('Error al enviar la solicitud:', error);
     }
-  };  
+}; 
 
   return (
     <div>
