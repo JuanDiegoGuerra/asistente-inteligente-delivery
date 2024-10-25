@@ -1,14 +1,16 @@
 /* Estilos para la alerta de recordatorios próximos */
 .alerta-recordatorio {
-    background-color: #ffcc00;
-    color: #333;
-    padding: 15px;
+    display: block;
+    background-color: #ffeb3b;
+    color: #000;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #fbc02d;
+    margin: 10px 0;
+    font-weight: bold;
     border-radius: 5px;
     font-size: 16px;
-    text-align: center;
-    margin-bottom: 20px;
-    display: none; /* Oculto por defecto */
-}
+}  
 
 /* Estilos generales para los recordatorios */
 /* Estilos para el título principal */
