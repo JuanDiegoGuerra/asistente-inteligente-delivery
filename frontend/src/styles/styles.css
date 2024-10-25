@@ -1,0 +1,93 @@
+/* Estilos para la alerta de recordatorios próximos */
+.alerta-recordatorio {
+    background-color: #ffcc00;
+    color: #333;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+    display: none; /* Oculto por defecto */
+}
+
+/* Estilos generales para los recordatorios */
+/* Estilos para el título principal */
+.titulo-principal {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+    color:white;
+}
+
+/* Estilos del formulario */
+.formulario-recordatorio {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.input-titulo,
+.input-descripcion,
+.input-fecha {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.label-completado {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 16px;
+}
+
+.boton-crear-recordatorio {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.boton-crear-recordatorio:hover {
+    background-color: #218838;
+}
+
+/* Estilos de la lista de recordatorios */
+.titulo-lista {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.lista-recordatorios {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px
+}
+
+.item-recordatorio {
+    background-color: #ffffff;
+    border: 3px solid #24c2d1;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.recordatorio-titulo {
+    font-weight: bold;
+    font-size: 18px;
+    color: black;
+}
+
+.recordatorio-fecha,
+.recordatorio-estado,
+.recordatorio-descripcion {
+    font-size: 14px;
+    color: #666;
+}
