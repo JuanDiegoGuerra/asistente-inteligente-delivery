@@ -1,8 +1,18 @@
 from fastapi import FastAPI
 from backend.api import recordatorios, promociones
+from fastapi.middleware.cors import CORSMiddleware
 
 # Inicialización de la aplicación
 app = FastAPI()
+
+# Configuración de CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000", "http://127.0.0.1:8000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Incluir los routers
 app.include_router(recordatorios.router, prefix="/api")
