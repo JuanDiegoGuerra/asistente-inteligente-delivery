@@ -84,51 +84,55 @@ const Recordatorios = () => {
     }
 }; 
 
-  return (
-    <div>
-      <h1>Recordatorios</h1>
-      
-      {/* Formulario para crear un nuevo recordatorio */}
-      <form onSubmit={handleSubmit}>
+return (
+  <div>
+    <h1 className="titulo-principal">Recordatorios</h1>
+    
+    {/* Formulario para crear un nuevo recordatorio */}
+    <form onSubmit={handleSubmit} className="formulario-recordatorio">
+      <input 
+        type="text" 
+        placeholder="Título" 
+        value={titulo} 
+        onChange={(e) => setTitulo(e.target.value)} 
+        required 
+        className="input-titulo"
+      />
+      <textarea 
+        placeholder="Descripción" 
+        value={descripcion} 
+        onChange={(e) => setDescripcion(e.target.value)} 
+        required 
+        className="input-descripcion"
+      />
+      <input 
+        type="datetime-local" 
+        value={fecha} 
+        onChange={(e) => setFecha(e.target.value)} 
+        required 
+        className="input-fecha"
+      />
+      <label className="label-completado">
+        Completado:
         <input 
-          type="text" 
-          placeholder="Título" 
-          value={titulo} 
-          onChange={(e) => setTitulo(e.target.value)} 
-          required 
+          type="checkbox" 
+          checked={completado} 
+          onChange={() => setCompletado(!completado)} 
+          className="input-completado"
         />
-        <textarea 
-          placeholder="Descripción" 
-          value={descripcion} 
-          onChange={(e) => setDescripcion(e.target.value)} 
-          required 
-        />
-        <input 
-          type="datetime-local" 
-          value={fecha} 
-          onChange={(e) => setFecha(e.target.value)} 
-          required 
-        />
-        <label>
-          Completado:
-          <input 
-            type="checkbox" 
-            checked={completado} 
-            onChange={() => setCompletado(!completado)} 
-          />
-        </label>
-        <button type="submit">Crear Recordatorio</button>
-      </form>
+      </label>
+      <button type="submit" className="boton-crear-recordatorio">Crear Recordatorio</button>
+    </form>
 
-      {/* Lista de recordatorios existentes */}
-      <h2>Lista de Recordatorios</h2>
-      <ul>
+    {/* Lista de recordatorios existentes */}
+    <h2 className="titulo-lista">Lista de Recordatorios</h2>
+    <ul className="lista-recordatorios">
       {recordatorios.map((recordatorio) => (
-        <li key={recordatorio.id}>
-          <h4>{recordatorio.titulo}</h4>
-          <p>{new Date(recordatorio.fecha_vencimiento).toLocaleString()}</p>
-          <p>{recordatorio.completado ? "Completado" : "Pendiente"}</p>
-          <p>{recordatorio.descripcion}</p>  {/* Descripción agregada */}
+        <li key={recordatorio.id} className="item-recordatorio">
+          <h4 className="recordatorio-titulo">{recordatorio.titulo}</h4>
+          <p className="recordatorio-fecha">{new Date(recordatorio.fecha_vencimiento).toLocaleString()}</p>
+          <p className="recordatorio-estado">{recordatorio.completado ? "Completado" : "Pendiente"}</p>
+          <p className="recordatorio-descripcion">{recordatorio.descripcion}</p> 
         </li>
       ))}
     </ul>
