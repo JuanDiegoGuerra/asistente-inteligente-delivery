@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 from typing import List, Optional
 from pydantic import BaseModel
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 router = APIRouter()
 
@@ -54,3 +54,16 @@ async def eliminar_recordatorio(recordatorio_id: int):
     global recordatorios_db
     recordatorios_db = [r for r in recordatorios_db if r.id != recordatorio_id]
     return {"message": "Recordatorio eliminado"}
+
+@router.get("/recordatorios/proximos", response_model=List[Recordatorio])
+async def obtener_recordatorios_proximos():
+    ahora = datetime.now(timezone.utc)  # Obtener la fecha actual en UTC con zona horaria "aware"
+    print(f"Fecha actual con zona horaria: {ahora}")
+
+    proximos_recordatorios = [
+        r for r in recordatorios_db
+        # Convertimos la fecha de vencimiento a "aware" si es "naive", para evitar errores de comparación
+        if r.fecha_vencimiento.replace(tzinfo=timezone.utc) <= (ahora + timedelta(hours=24)) and not r.completado
+    ]
+    print(f"Recordatorios próximos: {proximos_recordatorios}")
+    return proximos_recordatorios
