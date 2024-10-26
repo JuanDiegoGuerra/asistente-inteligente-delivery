@@ -56,7 +56,7 @@ Aplicación web para la automatización de tareas administrativas en una empresa
 
 ### Caracteristicas Clave <a name="caracteristicas-clave"></a>
 
-- [TBD] TBD.
+- [En Construccion].
 
 <p align="right">(<a href="#readme-top">regresar al inicio</a>)</p>
 
@@ -113,7 +113,7 @@ npm start
 
 Esto debería abrir tu navegador en el frontend del proyecto, listo para su uso.
 
-## Autores <a name="autores"></a>
+## 👥 Autores <a name="autores"></a>
 
 👨🏼‍🚀 **Juan Diego Guerra (JD)** 👾
 
@@ -127,23 +127,11 @@ Esto debería abrir tu navegador en el frontend del proyecto, listo para su uso.
 - LinkedIn: [Anthony Adrian Chaparro Salas](https://www.linkedin.com/in/anthony-adrian-chaparro-salas-827902175/)
 - Código de Alumno: i202418615
 
-👨🏼‍🚀 **Integrante 03** 🤠
-
-- GitHub: [@User](URL)
-- LinkedIn: [User](URL)
-- Código de Alumno: 
-
-👨🏼‍🚀 **Integrante 04** 🐱‍💻
-
-- GitHub: [@User](URL)
-- LinkedIn: [User](URL)
-- Código de Alumno: 
-
 <p align="right">(<a href="#readme-top">regresar al inicio</a>)</p>
 
 <!-- FUTURE FEATURES -->
 
-## Funcionalidades Futuras <a name="funcionalidades-futuras"></a>
+## 🚀 Funcionalidades Futuras <a name="funcionalidades-futuras"></a>
 
 - **Autenticación avanzada:** Implementación de autenticación en dos pasos (2FA) y autenticación de terceros (Google, Facebook).
 - **Generación automática de mensajes promocionales:** Generación de mensajes personalizados según la retroalimentación de clientes.
@@ -154,7 +142,7 @@ Esto debería abrir tu navegador en el frontend del proyecto, listo para su uso.
 
 <!-- CONTRIBUTING -->
 
-## Contribuyendo <a name="contribuyendo"></a>
+## 🤝 Contribuyendo <a name="contribuyendo"></a>
 
 Contributions, issues, and feature requests are welcome!
 
@@ -162,7 +150,7 @@ Contributions, issues, and feature requests are welcome!
 
 <!-- SUPPORT -->
 
-## Muestra tu Apoyo <a name="apoyo"></a>
+## ⭐️ Muestra tu Apoyo <a name="apoyo"></a>
 
 Si encuentra algún problema o tiene alguna pregunta o sugerencia, abra un problema en el [rastreador de problemas](https://github.com/JuanDiegoGuerra/asistente-inteligente-delivery/issues).
 Además, si deseas ponerte en contacto con nosotros, puedes encontrar nuestra información de contacto en la sección <a href="#autores">Autores</a>.
@@ -171,7 +159,7 @@ Además, si deseas ponerte en contacto con nosotros, puedes encontrar nuestra in
 
 <!-- ACKNOWLEDGEMENTS -->
 
-## Agradecimientos <a name="agradecimientos"></a>
+## 🙏 Agradecimientos <a name="agradecimientos"></a>
 
 **Por anunciar.
 
@@ -179,7 +167,7 @@ Además, si deseas ponerte en contacto con nosotros, puedes encontrar nuestra in
 
 <!-- LICENSE -->
 
-## Licencia <a name="licencia"></a>
+## 📝 Licencia <a name="licencia"></a>
 
 Este proyecto está licenciado por [MIT](./LICENSE).
 
