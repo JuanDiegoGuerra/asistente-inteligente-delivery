@@ -123,9 +123,9 @@ Esto debería abrir tu navegador en el frontend del proyecto, listo para su uso.
 
 👨🏼‍🚀 **Integrante 02** 🐱‍👤
 
-- GitHub: [@User](URL)
-- LinkedIn: [User](URL)
-- Código de Alumno: 
+- GitHub: [@decagraff](https://github.com/decagraff)
+- LinkedIn: [Anthony Adrian Chaparro Salas](https://www.linkedin.com/in/anthony-adrian-chaparro-salas-827902175/)
+- Código de Alumno: i202418615
 
 👨🏼‍🚀 **Integrante 03** 🤠
 
