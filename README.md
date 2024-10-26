@@ -8,27 +8,25 @@
 
 - [📖 Acerca del Proyecto](#acerca-proyecto)
   - [🛠 Construido Con](#built-with)
-    - [Tech Stack](#tech-stack)
-    - [Key Features ](#key-features-)
-- [💻 Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Setup](#setup)
-  - [Install](#install)
-  - [Usage](#usage)
-  - [Run tests](#run-tests)
-  - [Deployment](#deployment)
-- [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
-- [🤝 Contributing](#contributing)
-- [⭐️ Show your support](#support)
-- [🙏 Acknowledgements](#acknowledgements)
-- [📝 License](#license)
+    - [Tecnología Aplicada](#tecnología-aplicada)
+    - [Caracteristicas Clave](#caracteristicas-clave-)
+- [💻 Para Comenzar](#para-comenzar)
+  - [Prerequisitos](#prerequisitos)
+  - [Configuracion](#configuracion)
+  - [Instalacion](#instalacion)
+  - [Uso](#uso)
+- [👥 Autores](#autores)
+- [🔭 Funcionalidades Futuras](#funcionalidades-futuras)
+- [🤝 Contribuyendo](#contribuyendo)
+- [⭐️ Expresa tu apoyo](#apoyo)
+- [🙏 Agradecimientos](#agradecimientos)
+- [📝 Licencia](#licencia)
 
 # Asistente IA 🤖 para app delivery 🍔<a name="acerca-proyecto"></a>
 
 Aplicación web para la automatización de tareas administrativas en una empresa de delivery de comida, utilizando la API de OpenAI.
 
-### Tech Stack <a name="tech-stack"></a>
+### Tecnología Aplicada <a name="tecnología-aplicada"></a>
 
 > Relevant tech stack of the project.
 
@@ -56,61 +54,66 @@ Aplicación web para la automatización de tareas administrativas en una empresa
   </ul>
 </details>
 
-### Key Features <a name="key-features"></a>
+### Caracteristicas Clave <a name="caracteristicas-clave"></a>
 
 - [TBD] TBD.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">regresar al inicio</a>)</p>
 
-## 💻 Getting Started <a name="getting-started"></a>
+## 💻 Para Comenzar <a name="para-comenzar"></a>
 
-To get a local copy up and running, follow these steps. <br>
-NOTE: If you are running on Windows, you need to initialize npm to create package.json file.
-<pre class="notranslate"><code>npm init -y
-</code></pre>
+Para obtener una copia local y ejecutarla, sigue estos pasos. <br>
 
-### Prerequisites
+### Prerequisitos
 
-In order to run this project you need to run the following commands:
+Para ejecutar este proyecto, necesitas correr los siguientes comandos:
+
+Clona este repositorio en tu carpeta deseada:
+```sh
+git clone https://github.com/JuanDiegoGuerra/asistente-inteligente-delivery.git
+```
+
+### Configuracion
 
 ```sh
- python -m venv env
- pip install -r requirements.txt
+python -m venv env
+pip install -r requirements.txt 
 ```
 
 ```sh
- cd frontend
- npm install
+cd frontend
+npm install
 ```
 
-### Setup
+### Instalacion
 
-Clone this repository to your desired folder:
+Instala las dependencias del proyecto:
 
 ```sh
-  git clone TBD
+cd backend
+pip install -r requirements.txt
 ```
 
-### Install
+### Uso
 
-Install this project dependencies with:
+Para ejecutar el proyecto, usa el siguiente comando, en ese orden, en dos terminales diferentes:
 
-```sh
-  cd TBD
-  TBD
+<h5># NOTA: (raiz del proyecto "folder principal")</h5>
+
+```sh (raiz del proyecto "folder principal")
+env\Scripts\activate
+uvicorn main:app --reload
 ```
 
-### Usage
+<h5># NOTA: (frontend "cd frontend")</h5>
 
-To run the project run this command:
-
-```sh
-  TBD
+```sh (frontend "cd frontend")
+npm start
 ```
 
-your default browser should be opened in this moment.
+Esto debería abrir tu navegador en el frontend del proyecto, listo para su uso.
 
-## Authors <a name="authors"></a>
+## Autores <a name="autores"></a>
 
 👨🏼‍🚀 **Juan Diego Guerra (JD)** 👾
 
@@ -136,45 +139,48 @@ your default browser should be opened in this moment.
 - LinkedIn: [User](URL)
 - Código de Alumno: 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">regresar al inicio</a>)</p>
 
 <!-- FUTURE FEATURES -->
 
-## Future Features <a name="future-features"></a>
+## Funcionalidades Futuras <a name="funcionalidades-futuras"></a>
 
-- TBD
+- **Autenticación avanzada:** Implementación de autenticación en dos pasos (2FA) y autenticación de terceros (Google, Facebook).
+- **Generación automática de mensajes promocionales:** Generación de mensajes personalizados según la retroalimentación de clientes.
+- **Análisis de retroalimentación:** Integración con un modelo de análisis de sentimientos para interpretar y categorizar los comentarios de los clientes.
+- **Notificaciones adicionales:** Alertas más avanzadas, como notificaciones vía correo electrónico o mensajes de texto, para recordatorios críticos.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">regresar al inicio</a>)</p>
 
 <!-- CONTRIBUTING -->
 
-## Contributing <a name="contributing"></a>
+## Contribuyendo <a name="contribuyendo"></a>
 
 Contributions, issues, and feature requests are welcome!
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">regresar al inicio</a>)</p>
 
 <!-- SUPPORT -->
 
-## Support <a name="support"></a>
+## Muestra tu Apoyo <a name="apoyo"></a>
 
-If you encounter any issues or have any questions or suggestions, please open an issue on the [issue tracker]().
-Furthermore, if you would like to get in touch with us, you can find our contact information in the <a href="#authors">Authors</a> section.
+Si encuentra algún problema o tiene alguna pregunta o sugerencia, abra un problema en el [rastreador de problemas](https://github.com/JuanDiegoGuerra/asistente-inteligente-delivery/issues).
+Además, si deseas ponerte en contacto con nosotros, puedes encontrar nuestra información de contacto en la sección <a href="#autores">Autores</a>.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">regresar al inicio</a>)</p>
 
 <!-- ACKNOWLEDGEMENTS -->
 
-## Acknowledgments <a name="acknowledgements"></a>
+## Agradecimientos <a name="agradecimientos"></a>
 
-TBD
+**Por anunciar.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">regresar al inicio</a>)</p>
 
 <!-- LICENSE -->
 
-## License <a name="license"></a>
+## Licencia <a name="licencia"></a>
 
-This project is [MIT](./LICENSE) licensed.
+Este proyecto está licenciado por [MIT](./LICENSE).
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">regresar al inicio</a>)</p>
